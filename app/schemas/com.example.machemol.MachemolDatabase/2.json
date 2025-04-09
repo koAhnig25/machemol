@@ -1,0 +1,112 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 2,
+    "identityHash": "a72b969f324c43d0a4bc1b2fa1b4e347",
+    "entities": [
+      {
+        "tableName": "degustationen",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `deguname` TEXT NOT NULL, `degudatum` TEXT NOT NULL, `winzer` TEXT NOT NULL, `wein` TEXT NOT NULL, `farbe` TEXT NOT NULL, `jahrgang` TEXT NOT NULL, `nase` TEXT NOT NULL, `koerper` TEXT NOT NULL, `abgang` TEXT NOT NULL, `essen` TEXT NOT NULL, `kommentar` TEXT NOT NULL, `markiert` INTEGER NOT NULL, `anzahlBestellt` TEXT NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "deguname",
+            "columnName": "deguname",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "degudatum",
+            "columnName": "degudatum",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "winzer",
+            "columnName": "winzer",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "wein",
+            "columnName": "wein",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "farbe",
+            "columnName": "farbe",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "jahrgang",
+            "columnName": "jahrgang",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "nase",
+            "columnName": "nase",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "koerper",
+            "columnName": "koerper",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "abgang",
+            "columnName": "abgang",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "essen",
+            "columnName": "essen",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "kommentar",
+            "columnName": "kommentar",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "markiert",
+            "columnName": "markiert",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "anzahlBestellt",
+            "columnName": "anzahlBestellt",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'a72b969f324c43d0a4bc1b2fa1b4e347')"
+    ]
+  }
+}
