@@ -19,6 +19,8 @@ import androidx.navigation.NavController
 import com.google.gson.Gson
 import android.content.Context
 import com.google.gson.reflect.TypeToken
+import java.io.File
+import android.os.Environment
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -58,16 +60,16 @@ fun DegustationListScreen(navController: NavController) {
                     scope.launch {
                         val exportList = dao.getAllOnce()
                         val json = Gson().toJson(exportList)
-
                         val filename = "degustationen_export.json"
-                        val outputStream = context.openFileOutput(filename, Context.MODE_PRIVATE)
-                        outputStream.write(json.toByteArray())
-                        outputStream.close()
+
+                        val downloadsDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)
+                        val exportFile = File(downloadsDir, filename)
+                        exportFile.writeText(json)
 
                         snackbarHostState.showSnackbar("Daten wurden exportiert: $filename")
                     }
                 },
-                modifier = Modifier.align(Alignment.End)
+                modifier = Modifier.align(Alignment.Start)
             ) {
                 Text("Exportieren")
             }
