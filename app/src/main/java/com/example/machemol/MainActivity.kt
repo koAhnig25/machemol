@@ -64,15 +64,27 @@ fun MachemolApp() {
     ) { padding ->
         NavHost(
             navController = navController,
-            startDestination = "home",
+            startDestination = "dashboard", // falls du direkt zum neuen Dashboard willst
             modifier = Modifier.padding(padding)
         ) {
-            composable("home") { HomeScreen(navController) }
-            composable("wine") { WineCellarScreen() }
+            // Hauptscreens
+            composable("dashboard") { DashboardScreen(navController) }
+            //composable("home") { HomeScreen(navController) }
+
+            // Degustationen
             composable("degustation") { DegustationScreen() }
             composable("degustation_list") { DegustationListScreen(navController) }
 
-            // 👇 Richtig eingebaut in die NavHost-Struktur
+            // Weitere Module
+            composable("wine") { WineCellarScreen() }
+            composable("freezer") { /* TODO: GefrierschrankScreen() */ }
+            composable("todos") { /* TODO: TodoScreen() */ }
+            composable("menu") { /* TODO: MenuScreen() */ }
+            composable("house") { /* TODO: HouseScreen() */ }
+            composable("contacts") { /* TODO: ContactsScreen() */ }
+            composable("tiktaktor") { /* TODO: TiktaktorScreen() */ }
+
+            // Degustation bearbeiten mit ID
             composable("degustation_edit/{id}") { backStackEntry ->
                 val id = backStackEntry.arguments?.getString("id")?.toIntOrNull()
                 val dao = MachemolDatabase.getInstance(LocalContext.current).degustationDao()
@@ -87,11 +99,3 @@ fun MachemolApp() {
         }
     }
 }
-
-
-
-
-
-
-
-
